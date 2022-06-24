@@ -2,7 +2,7 @@
 
 namespace App\Entity;
 
-use App\Repository\StautRepository;
+use App\Repository\StatutRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: StatutRepository::class)]
