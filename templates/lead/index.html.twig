@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Lead index{% endblock %}
+
+{% block body %}
+    <h1>Lead index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Id_statut</th>
+                <th>Adresse</th>
+                <th>Cp</th>
+                <th>Ville</th>
+                <th>Tel</th>
+                <th>Email</th>
+                <th>Date</th>
+                <th>Situation_pro</th>
+                <th>Revenu_foyer</th>
+                <th>Commentaire</th>
+                <th>Restant_payer</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for lead in leads %}
+            <tr>
+                <td>{{ lead.id }}</td>
+                <td>{{ lead.Nom }}</td>
+                <td>{{ lead.Prenom }}</td>
+                <td>{{ lead.idStatut }}</td>
+                <td>{{ lead.adresse }}</td>
+                <td>{{ lead.cp }}</td>
+                <td>{{ lead.ville }}</td>
+                <td>{{ lead.tel }}</td>
+                <td>{{ lead.email }}</td>
+                <td>{{ lead.date ? lead.date|date('Y-m-d') : '' }}</td>
+                <td>{{ lead.situationPro }}</td>
+                <td>{{ lead.revenuFoyer }}</td>
+                <td>{{ lead.commentaire }}</td>
+                <td>{{ lead.restantPayer }}</td>
+                <td>
+                    <a href="{{ path('app_lead_show', {'id': lead.id}) }}">show</a>
+                    <a href="{{ path('app_lead_edit', {'id': lead.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="15">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_lead_new') }}">Create new</a>
+{% endblock %}

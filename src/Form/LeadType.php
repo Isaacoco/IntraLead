@@ -20,6 +20,11 @@ class LeadType extends AbstractType
             ->add('ville')
             ->add('tel')
             ->add('email')
+            ->add('date')
+            ->add('situation_pro')
+            ->add('revenu_foyer')
+            ->add('commentaire')
+            ->add('restant_payer')
         ;
     }
 
